@@ -6,14 +6,46 @@
     <script src="app.js"></script>
   </head>
   <body ng-app ng-cloak>
-    <h1>Hello Fizzbuzzer</h1>
-    <div id="div1" class="well row" ng-init="buzzer = 0">
-      <button id="plus-btn" class="btn" ng-click="buzzer = buzzer +1">+</button>
-      <button id="minus-btn" class="btn" ng-click="buzzer = buzzer -1">-</button>
-      {{ buzzer }}
-        <span class="label label-info" ng-show="buzzer % 3 === 0 && buzzer !== 0">Fizz</span>
-        <span class="label label-warning" ng-hide="buzzer % 5 !== 0 || buzzer == 0">Buzz</span>
+    <div class="container">
+        <div class="col-md-12">
+            <h1>
+                Hello Fizzbuzzer
+                <span class="label label-info" ng-show="buzzer % 3 === 0 && buzzer !== 0">Fizz</span>
+                <span class="label label-warning" ng-hide="buzzer % 5 !== 0 || buzzer == 0">Buzz</span>
+            </h1>
+            <div id="div1" class="well row" ng-init="buzzer = 0">
+                <button id="plus-btn" class="btn" ng-click="buzzer = buzzer +1">+</button>
+                <button id="minus-btn" class="btn" ng-click="buzzer = buzzer -1">-</button>
+                {{ buzzer }}
+            </div>
+
+            <div ng-init="stooges = ['Larry', 'Moe', 'Curly', 'Shemp']">
+                <ul>
+                    <li class="list-item" ng-repeat="stooge in stooges">{{ stooge }}</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-danger" ng-if="buzzer > 10" ng-class="{hide:buzzer > 20}"><strong>Woah!</strong> Slow down there.</div>
+
+            <table class="table table-bordered table-hover" ng-init="names = [
+                {fname: 'jazahn', lname: 'clevenger'},
+                {fname: 'bob', lname: 'ross'},
+                {fname: 'dominick', lname: 'peluso'},
+                {fname: 'billy', lname: 'mays'},
+                {fname: 'jackie', lname: 'chan'}
+            ]">
+                <caption>Names of peeps.</caption>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                </tr>
+                <tr ng-repeat="name in names" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td>{{ name.fname }}</td>
+                    <td>{{ name.lname }}</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
-    <div class="alert alert-danger" ng-if="buzzer > 10" ng-class="{hide:buzzer > 20}"><strong>Woah!</strong> Slow down there.</div>
   </body>
 </html>
