@@ -11,8 +11,9 @@
       <button id="plus-btn" class="btn" ng-click="buzzer = buzzer +1">+</button>
       <button id="minus-btn" class="btn" ng-click="buzzer = buzzer -1">-</button>
       {{ buzzer }}
-        <span ng-show="buzzer % 3 === 0 && buzzer !== 0">Fizz</span>
-        <span ng-hide="buzzer % 5 !== 0 || buzzer == 0">Buzz</span>
+        <span class="label label-info" ng-show="buzzer % 3 === 0 && buzzer !== 0">Fizz</span>
+        <span class="label label-warning" ng-hide="buzzer % 5 !== 0 || buzzer == 0">Buzz</span>
     </div>
+    <div class="alert alert-danger" ng-if="buzzer > 10"><strong>Woah!</strong> Slow down there.</div>
   </body>
 </html>
